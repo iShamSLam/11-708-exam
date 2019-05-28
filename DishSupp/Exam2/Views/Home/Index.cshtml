@@ -1,0 +1,43 @@
+﻿@using Exam2.Data.Entities
+@model IEnumerable<Restaurant>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Restaurants</h1>
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-action="GetDishesFromRestaurant" asp-controller="Home" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Name)</a>
+                </td>
+                @if (User.IsInRole("Admin"))
+                {
+                    <td>
+                        <a asp-action="EditDish" asp-controller="Admin" asp-route-id="@item.Id">Edit</a> |
+                        @*<a asp-action="Details" asp-route-id="@item.Id">Details</a> |*@
+                        <a asp-action="DeleteDish" asp-controller="Admin" asp-route-id="@item.Id">Delete</a> |
+                        <a asp-action="AddDish" asp-controller="Admin" asp-route-id="@item.Id">Add dish</a>
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
