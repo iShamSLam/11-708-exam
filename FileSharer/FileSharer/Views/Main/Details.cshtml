@@ -1,0 +1,36 @@
+﻿@model FileSharingApp.Models.FileClass
+
+@{
+    ViewData["Title"] = "Детали";
+}
+<h2>Детали</h2>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Короткое описание:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ShortDesc)
+        </dd>
+        <dt>
+            Длинное описание:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LongDesc)
+        </dd>
+        <dt>
+            Дата загрузки:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UploadDate)
+        </dd>
+        <dt>
+            Ссылка для скачивания:
+        </dt>
+        <dd>
+            <a href="@ViewData["shorturl"]"> @ViewData["shorturl"]</a>
+        </dd>
+    </dl>
+</div>
+

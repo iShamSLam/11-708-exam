@@ -61,11 +61,11 @@ namespace FileSharingApp
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Upload}/{action=Index}/{id?}");
+                    template: "{controller=Main}/{action=Index}/");
 
                 routes.MapRoute(
                     name: "short",
-                    template: "{i}",
+                    template: "{key}",
                     defaults: new { controller = "Main", action = "Download" }
                 );
             });

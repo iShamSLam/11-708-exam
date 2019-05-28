@@ -4,12 +4,13 @@
     }
     <h3>Выберите файл для загрузки</h3>
     <form asp-action="AddFile" asp-controller="Upload" method="post" enctype="multipart/form-data">
+        <h4>Краткое описание</h4>
+        <input type="text" name="shortDescription" />
+        <br />
+        <h4>Длинное описание</h4>
+        <textarea name="longDescription">
+        </textarea>
+        <br />
         <input type="file" name="uploadedFile" /><br>
         <input type="submit" value="Загрузить" />
     </form>
-
-    <h3>Все файлы</h3>
-    @foreach (var f in Model)
-    {
-        <p><img src="@Url.Content(f.Path)"></p>
-    }

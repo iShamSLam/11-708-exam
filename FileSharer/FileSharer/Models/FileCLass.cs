@@ -16,5 +16,16 @@ namespace FileSharingApp.Models
         public int MaxDownloads { get; set; }
         public string Path { get; set; }
         public DateTime UploadDate { get; set; }
+        public DateTime MaxDate { get; set; }
+        public FileParameter Parameter { get; set; }
+        public string Type { get; set; }
+
+        public enum FileParameter
+        {
+            simple,
+            password,
+            count,
+            data
+        }
     }
 }

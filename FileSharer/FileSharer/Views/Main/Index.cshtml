@@ -1,0 +1,13 @@
+﻿@model IEnumerable<FileSharingApp.Models.FileClass>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Все файлы</h2>
+@foreach (var f in Model)
+{
+    <h3>@f.ShortDesc</h3>
+    <h4>@f.ShortUrl</h4>
+    <a asp-action="Details" asp-route-shortUrl="@f.ShortUrl">Детали</a>
+}
+
